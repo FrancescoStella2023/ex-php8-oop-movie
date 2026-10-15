@@ -2,44 +2,43 @@
 
 class Movie
 {
-    protected $title;
-    protected $description;
-    protected $date;
-    protected $rating;
-    protected Genre $genre;
+    public $title;
+    public $description;
+    public $date;
+    public $rating;
+    protected array $genres;
 
-    public function __construct($title, $description, $date, $rating, Genre $genre)
+    use HasDirector;
+
+    public function __construct($title, $description, $date, $rating, array $genres = [])
     {
         $this->title = $title;
         $this->description = $description;
         $this->date = $date;
         $this->rating = $rating;
-        $this->genre = $genre;
+        $this->genres = $genres;
     }
 
-    public function getTitle()
+    public function addGenre($genre)
     {
-        return $this->title;
+        $this->genres[] = $genre;
     }
 
-    public function getDescription()
+    public function getGenres()
     {
-        return $this->description;
+        return $this->genres;
     }
 
-    public function getDate()
-    {
-        return $this->date;
-    }
 
-    public function getrating()
+    public function getGenreNames(): array
     {
-        return $this->rating;
-    }
+        $names = [];
 
-    public function getGenreName()
-    {
-        return $this->genre->getName();
+        foreach ($this->genres as $genre) {
+            $names[] = $genre->getName();
+        }
+
+        return $names;
     }
 }
 

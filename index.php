@@ -1,8 +1,12 @@
 <?php
 
+require_once "./Traits/HasDirector.php";
+
 require_once "./Models/Genre.php";
 require_once "./Models/Movie.php";
 require_once "./dp.php";
+
+$movies[1]->setDirector('Billy');
 
 ?>
 

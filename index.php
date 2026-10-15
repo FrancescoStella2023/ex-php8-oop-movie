@@ -1,80 +1,10 @@
 <?php
 
-class Genre
-{
-    protected $name;
-    protected $descritpion;
+require_once "./Models/Genre.php";
+require_once "./Models/Movie.php";
+require_once "./dp.php";
 
-    public function __construct($name, $descritpion)
-    {
-        $this->name = $name;
-        $this->descritpion = $descritpion;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getDescription()
-    {
-        return $this->descritpion;
-    }
-}
-
-
-class Movie
-{
-    protected $title;
-    protected $descritpion;
-    protected $date;
-    protected $rating;
-    protected Genre $genre;
-
-    public function __construct($title, $descritpion, $date, $rating, Genre $genre)
-    {
-        $this->title = $title;
-        $this->descritpion = $descritpion;
-        $this->date = $date;
-        $this->rating = $rating;
-        $this->genre = $genre;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function getDescription()
-    {
-        return $this->descritpion;
-    }
-
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    public function getrating()
-    {
-        return $this->rating;
-    }
-
-    public function getGenreName()
-    {
-        return $this->genre->getName();
-    }
-}
-
-$genre_action = new Genre("Azione", "Film pieni di pericolo ed esplosioni");
-
-$movies = [
-    new Movie("Bob Aggiustatutto", "Riuscira Bob ad aggisutare tuttto prima che il suo gemello cattivo boB lo distrugga?", "2027", "5", $genre_action),
-    new Movie("Bob Aggiustatutto 2", "Riuscira Bob ad aggisutare tuttto prima che il suo gemello cattivo boB lo distrugga?", "2027", "5", $genre_action),
-    new Movie("Bob Aggiustatutto 3", "Riuscira Bob ad aggisutare tuttto prima che il suo gemello cattivo boB lo distrugga?", "2027", "5", $genre_action)
-]
-
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
